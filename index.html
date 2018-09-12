@@ -532,7 +532,7 @@
 
             for (month in list[year]) {
                 scrubber_month.unshift(tpl_scrubber_month.replace(/\{year\}/g, year).replace(/\{month\}/g, month));
-
+                console.log(month);
                 //for (var i = list[year][month].length - 1; i >= 0; i--) {
               for (var i = 0; i < list[year][month].length; i++) {
                     var item = list[year][month][i];
@@ -638,7 +638,6 @@
             for (var i = 0; i < years.length; i++) {
                 tops.push(years[i].offsetTop);
             };
-
             for (var i = 1; i < tops.length; i++) {
 
                 if (top > tops[i - 1] && top < tops[i]) {
@@ -646,6 +645,7 @@
                     var year = years[i - 1].innerHTML;
 
                     expandScrubber(year, g('scrubber_year_' + year));
+                    console.log("the year is "+ year)
                     return;
                 }
             }
@@ -661,7 +661,6 @@
             for (var i = 0; i < months.length; i++) {
                 tops.push(months[i].offsetTop);
             };
-
             for (var i = 1; i < tops.length; i++) {
 
                 if (top > tops[i - 1] && top < tops[i]) {
@@ -669,6 +668,7 @@
                     var info = months[i - 1].id.split('_');
                     var year = info[2];
                     var month = info[3];
+                    console.log(month)
                     highlightMonth(year, month, g('scrubber_month_' + year + month));
 
                     return;
@@ -692,8 +692,8 @@
             }
 
             //  更新时序状态
-            updateScrubberOnTop(top);
-            updateMonthOnTop(top);
+            updateScrubberOnTop(top+1000);
+            updateMonthOnTop(top+1000);
         }
 
         //  窗口改变事件处理; 保持时序列表的位置
