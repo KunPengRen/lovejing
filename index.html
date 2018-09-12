@@ -532,8 +532,8 @@
             for (month in list[year]) {
                 scrubber_month.unshift(tpl_scrubber_month.replace(/\{year\}/g, year).replace(/\{month\}/g, month));
 
-                //for (var i = list[year][month].length - 1; i >= 0; i--) {
-                for (var i = 0; i < list[year][month].length; i++) {
+                for (var i = list[year][month].length - 1; i >= 0; i--) {
+                //for (var i = 0; i < list[year][month].length; i++) {
                     var item = list[year][month][i];
                     console.log(item);
 
