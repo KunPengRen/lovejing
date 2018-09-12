@@ -322,21 +322,21 @@
 <body>
     <!-- 音乐 -->
 
-    <audio src="http://123.207.75.151/yekong.mp3" preload="meta" loop autoplay id="bgmusic"></audio>
+    <!-- <audio src="http://123.207.75.151/yekong.mp3" preload="meta" loop autoplay id="bgmusic"></audio> -->
     <audio style="display:none; height: 0" id="bg-music" preload="auto" src="http://123.207.75.151/yekong.mp3" loop="loop"></audio>
 
     <script>
-        var bgmusic = document.getElementById('bgmusic');
-        bgmusic.addEventListener('canplay', function () {
-            this.play();
-        }, false);
-        window.addEventListener('load', function () {
-            window.addEventListener('touchstart', once, false);
-        }, false);
-        function once() {
-            bgmusic.play();
-            window.removeEventListener('touchstart', once, false);
-        }
+        // var bgmusic = document.getElementById('bgmusic');
+        // bgmusic.addEventListener('canplay', function () {
+        //     this.play();
+        // }, false);
+        // window.addEventListener('load', function () {
+        //     window.addEventListener('touchstart', once, false);
+        // }, false);
+        // function once() {
+        //     bgmusic.play();
+        //     window.removeEventListener('touchstart', once, false);
+        // }
           //音乐自动播放
           $(document).ready(function(){
             autoPlayMusic();
