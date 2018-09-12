@@ -561,8 +561,8 @@
         };
 
         //  写入内容
-        g('scrubber').innerHTML = '<a href="javascript:;" onclick="scrollTopTo(0)">起点</a>' + html_scrubber.join('') + '<a href="javascript:;" onclick="scrollTopTo(getBodyH())">未来</a>';
-        g('content').innerHTML = html_content.join('') + tpl_content_year.replace(/\{year\}/g, '未来').replace(/\{list\}/g, '') + '<div class="clear c_month" id="c_month_0_0"></div>';
+        g('scrubber').innerHTML = '<a href="javascript:;" onclick="scrollTopTo(0)">未来</a>' + html_scrubber.join('') + '<a href="javascript:;" onclick="scrollTopTo(getBodyH())">起点</a>';
+        g('content').innerHTML = html_content.join('') + tpl_content_year.replace(/\{year\}/g, '起点').replace(/\{list\}/g, '') + '<div class="clear c_month" id="c_month_0_0"></div>';
 
 
 
