@@ -532,7 +532,7 @@
 
             for (month in list[year]) {
                 scrubber_month.unshift(tpl_scrubber_month.replace(/\{year\}/g, year).replace(/\{month\}/g, month));
-                console.log(month);
+                
                 //for (var i = list[year][month].length - 1; i >= 0; i--) {
               for (var i = 0; i < list[year][month].length; i++) {
                     var item = list[year][month][i];
@@ -555,12 +555,14 @@
                 };
 
             };
+          
             html_scrubber.unshift(tpl_scrubber_year.replace(/\{year\}/g, year).replace(/\{list\}/g, scrubber_month.join('')));
 
             html_content.unshift(tpl_content_year.replace(/\{year\}/g, year).replace(/\{list\}/g, content_month.join('')));
         };
-
+        html_scrubber = ['<a href="javascript:;" onclick="showYear(2019,this)" class="s_year" id="scrubber_year_2019">2019↵                <a href="javascript:;" class="s_month 2019_month" onclick="showMonth(2019,10,this)" id="scrubber_month_201910">10月</a><a href="javascript:;" class="s_month 2019_month" onclick="showMonth(2019,5,this)" id="scrubber_month_20195">5月</a>↵            </a>','<a href="javascript:;" onclick="showYear(2018,this)" class="s_year" id="scrubber_year_2018">2018↵                <a href="javascript:;" class="s_month 2018_month" onclick="showMonth(2018,10,this)" id="scrubber_month_201810">10月</a><a href="javascript:;" class="s_month 2018_month" onclick="showMonth(2018,9,this)" id="scrubber_month_20189">9月</a><a href="javascript:;" class="s_month 2018_month" onclick="showMonth(2018,8,this)" id="scrubber_month_20188">8月</a><a href="javascript:;" class="s_month 2018_month" onclick="showMonth(2018,7,this)" id="scrubber_month_20187">7月</a><a href="javascript:;" class="s_month 2018_month" onclick="showMonth(2018,6,this)" id="scrubber_month_20186">6月</a>↵            </a>'];
         //  写入内容
+        console.log(tpl_content_year)
         g('scrubber').innerHTML = '<a href="javascript:;" onclick="scrollTopTo(0)">未来</a>' + html_scrubber.join('') + '<a href="javascript:;" onclick="scrollTopTo(getBodyH())">起点</a>';
         g('content').innerHTML = html_content.join('') + tpl_content_year.replace(/\{year\}/g, '起点').replace(/\{list\}/g, '') + '<div class="clear c_month" id="c_month_0_0"></div>';
 
