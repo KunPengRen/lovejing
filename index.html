@@ -132,7 +132,7 @@
             width: 600px;
             background: #000000;
 
-            opacity:0.8;
+            opacity: 0.8;
             height: auto;
             margin: 40px 60px 0 0;
             position: relative;
@@ -298,31 +298,45 @@
             display: block;
             /*background-color: #000;*/
         }
+
         .svg_bg {
-            position:fixed;
+            position: fixed;
             z-index: -999;
         }
-        
+
 
         #display {
             position: absolute;
             top: 8;
             left: 8;
         }
-        
+
         @keyframes dash {
             to {
                 stroke-dashoffset: 0;
             }
         }
-
-        
     </style>
 </head>
 
 <body>
     <!-- 音乐 -->
-    <embed src="http://123.207.75.151/yekong.mp3" autostart="true" loop="true" hidden="true"></embed>
+
+    <audio src="http://123.207.75.151/yekong.mp3" preload="meta" loop autoplay id="bgmusic"></audio>
+
+    <script>
+            var bgmusic = document.getElementById('bgmusic');
+            bgmusic.addEventListener('canplay', function () {
+                this.play();
+            }, false);
+            window.addEventListener('load', function () {
+                window.addEventListener('touchstart', once, false);
+            }, false);
+            function once() {
+                bgmusic.play();
+                window.removeEventListener('touchstart', once, false);
+            }
+        </script>
     <!-- 模版定义 -->
     <div class="hide">
         <div id="tpl_scrubber_year">
@@ -425,6 +439,9 @@
     <script type="text/javascript" src="GetLunarDay.js"></script>
 
     <script type="text/javascript">
+
+        // session控制音乐
+
 
         //--------  公共函数
 
@@ -651,8 +668,9 @@
             window.onscroll();
         }
     </script>
-
+ 
     <script>
+
         function random(min, max) {
             if (arguments.length < 2) {
                 max = min;
