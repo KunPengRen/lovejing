@@ -325,18 +325,13 @@
     <audio src="http://123.207.75.151/yekong.mp3" preload="meta" loop autoplay id="bgmusic"></audio>
 
     <script>
-            var bgmusic = document.getElementById('bgmusic');
-            bgmusic.addEventListener('canplay', function () {
-                this.play();
-            }, false);
-            window.addEventListener('load', function () {
-                window.addEventListener('touchstart', once, false);
-            }, false);
-            function once() {
-                bgmusic.play();
-                window.removeEventListener('touchstart', once, false);
-            }
-        </script>
+        
+        var music = document.getElementById("bgmusic");//获取ID  
+        console.log(music);
+        if (music.paused) { //判读是否播放  
+            music.play(); //没有就播放  
+        }  
+    </script>
     <!-- 模版定义 -->
     <div class="hide">
         <div id="tpl_scrubber_year">
@@ -668,7 +663,7 @@
             window.onscroll();
         }
     </script>
- 
+
     <script>
 
         function random(min, max) {
